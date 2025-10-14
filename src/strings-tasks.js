@@ -19,9 +19,14 @@
  *   getStringLength(null) => 0
  *   getStringLength(undefined) => 0
  */
-function getStringLength(/* value */) {
-  throw new Error('Not implemented');
+function getStringLength(value) {
+  if (value === null || value === undefined || value.length === 0) {
+    return 0;
+  }
+  return value.length;
 }
+
+getStringLength('aaa');
 
 /**
  * Returns true if the value is a string, otherwise returns false.
@@ -37,9 +42,15 @@ function getStringLength(/* value */) {
  *   isString('test') => true
  *   isString(new String('test')) => true
  */
-function isString(/* value */) {
-  throw new Error('Not implemented');
+function isString(value) {
+  if (typeof value === 'string' || value instanceof String) {
+    return true;
+  }
+
+  return false;
 }
+
+isString('aga');
 
 /**
  * Returns the result of concatenation of two strings.
@@ -53,9 +64,11 @@ function isString(/* value */) {
  *   concatenateStrings('aa', '') => 'aa'.
  *   concatenateStrings('', 'bb') => 'bb'
  */
-function concatenateStrings(/* value1, value2 */) {
-  throw new Error('Not implemented');
+function concatenateStrings(value1, value2) {
+  return value1.concat(value2);
 }
+
+concatenateStrings('a', 'b');
 
 /**
  * Returns the first character of the given string.
@@ -68,9 +81,11 @@ function concatenateStrings(/* value1, value2 */) {
  *   getFirstChar('cat') => 'c'
  *   getFirstChar('') => ''
  */
-function getFirstChar(/* value */) {
-  throw new Error('Not implemented');
+function getFirstChar(value) {
+  return value.charAt(0);
 }
+
+getFirstChar('aaaf');
 
 /**
  * Removes leading and trailing whitespace characters from the string.
@@ -83,9 +98,11 @@ function getFirstChar(/* value */) {
  *   removeLeadingAndTrailingWhitespaces('cat ') => 'cat'
  *   removeLeadingAndTrailingWhitespaces('\t\t\tHello, World! ') => 'Hello, World!'
  */
-function removeLeadingAndTrailingWhitespaces(/* value */) {
-  throw new Error('Not implemented');
+function removeLeadingAndTrailingWhitespaces(value) {
+  return value.trim();
 }
+
+removeLeadingAndTrailingWhitespaces('cat  ');
 
 /**
  * Removes only leading whitespace characters from the string.
@@ -98,9 +115,11 @@ function removeLeadingAndTrailingWhitespaces(/* value */) {
  *   removeLeadingWhitespaces('cat ') => 'cat '
  *   removeLeadingWhitespaces('\t\t\tHello, World! ') => 'Hello, World! '
  */
-function removeLeadingWhitespaces(/* value */) {
-  throw new Error('Not implemented');
+function removeLeadingWhitespaces(value) {
+  return value.trimStart();
 }
+
+removeLeadingWhitespaces('cat  ');
 
 /**
  * Removes only trailing whitespace characters from the string.
@@ -113,9 +132,11 @@ function removeLeadingWhitespaces(/* value */) {
  *   removeTrailingWhitespaces('cat ') => 'cat'
  *   removeTrailingWhitespaces('\t\t\tHello, World! ') => '\t\t\tHello, World!'
  */
-function removeTrailingWhitespaces(/* value */) {
-  throw new Error('Not implemented');
+function removeTrailingWhitespaces(value) {
+  return value.trimEnd();
 }
+
+removeTrailingWhitespaces('cat ');
 
 /**
  * Returns a string that is repeated the specified number of times.
@@ -130,9 +151,14 @@ function removeTrailingWhitespaces(/* value */) {
  *   repeatString('', 3) => ''
  *   repeatString('abc', -2) => ''
  */
-function repeatString(/* str, times */) {
-  throw new Error('Not implemented');
+function repeatString(str, times) {
+  if (str === undefined || str === null || times < 0) {
+    return false;
+  }
+  return str.repeat(times);
 }
+
+repeatString('aaa', 2);
 
 /**
  * Remove the first occurrence of a substring from a string.
