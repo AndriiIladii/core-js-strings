@@ -276,10 +276,13 @@ endsWith('Hello World', 'Hello');
  *   formatTime(0, 45) => "00:45"
  *   formatTime(0, 0) => "00:00"
  */
-function formatTime(/* minutes, seconds */) {
-  throw new Error('Not implemented');
+function formatTime(minutes, seconds) {
+  const formattedMinutes = String(minutes).padStart(2, '0');
+  const formattedSeconds = String(seconds).padStart(2, '0');
+  return `${formattedMinutes}:${formattedSeconds}`;
 }
 
+formatTime(0, 5);
 /**
  * Returns a string in reverse order.
  *
@@ -290,9 +293,11 @@ function formatTime(/* minutes, seconds */) {
  *   reverseString('abcdef') => 'fedcba'
  *   reverseString('12345') => '54321'
  */
-function reverseString(/* str */) {
-  throw new Error('Not implemented');
+function reverseString(str) {
+  return str.split('').reverse().join('');
 }
+
+reverseString('abracadabra');
 
 /**
  * Returns a string with characters in alphabetical order.
@@ -305,9 +310,11 @@ function reverseString(/* str */) {
  *   orderAlphabetically('textbook') => 'bekoottx'
  *   orderAlphabetically('abc123xyz') => '123abcxyz'
  */
-function orderAlphabetically(/* str */) {
-  throw new Error('Not implemented');
+function orderAlphabetically(str) {
+  return str.split('').sort().join('');
 }
+
+orderAlphabetically('webmaster');
 
 /**
  * Checks if a given string contains a specified substring.
@@ -321,10 +328,11 @@ function orderAlphabetically(/* str */) {
  *   containsSubstring('JavaScript is Fun', 'Python') => false
  *   containsSubstring('12345', '34') => true
  */
-function containsSubstring(/* str, substring */) {
-  throw new Error('Not implemented');
+function containsSubstring(str, substring) {
+  return str.includes(substring);
 }
 
+containsSubstring('12345');
 /**
  * Returns the number of vowels in the string.
  * Vowels: 'a', 'e', 'i', 'o', 'u', 'y', 'A', 'E', 'I', 'O', 'U', 'Y'.
@@ -339,9 +347,12 @@ function containsSubstring(/* str, substring */) {
  *   countVowels('aEiOu') => 5
  *   countVowels('XYZ') => 1
  */
-function countVowels(/* str */) {
-  throw new Error('Not implemented');
+function countVowels(str) {
+  const matches = str.match(/[aeiouy]/gi);
+  return matches ? matches.length : 0;
 }
+
+countVowels('asa');
 
 /**
  * Returns true if the string is a palindrome; otherwise false.
@@ -356,9 +367,13 @@ function countVowels(/* str */) {
  *   isPalindrome('apple') => false
  *   isPalindrome('No lemon, no melon') => true
  */
-function isPalindrome(/* str */) {
-  throw new Error('Not implemented');
+function isPalindrome(str) {
+  const clean = str.toLowerCase().replace(/[^\w]+/g, '');
+
+  return clean === clean.split('').reverse().join('');
 }
+
+isPalindrome('madam');
 
 /**
  * Find the longest word in the sentence. If there are multiple longest words,
